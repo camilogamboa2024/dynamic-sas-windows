@@ -35,11 +35,12 @@ class ProductoAdmin(admin.ModelAdmin):
         "necesita_reposicion",
     )
     list_filter = ("categoria", "activo")
-    search_fields = ("sku", "nombre")
+    search_fields = ("sku", "nombre",)
     autocomplete_fields = ("categoria",)
     readonly_fields = ("stock_actual", "necesita_reposicion", "created_at")
     inlines = [MovimientoInline]
     list_per_page = 25
+
 
     def necesita_reposicion(self, obj):
         return obj.necesita_reposicion

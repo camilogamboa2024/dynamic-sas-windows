@@ -20,7 +20,7 @@ class Categoria(models.Model):
 class Producto(models.Model):
     sku = models.CharField(_("SKU"), max_length=30, unique=True)
     nombre = models.CharField(max_length=120)
-    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name="productos")
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     stock_minimo = models.PositiveIntegerField(default=0)
     activo = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)

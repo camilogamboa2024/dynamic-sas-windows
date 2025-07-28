@@ -2,6 +2,11 @@ from pathlib import Path
 import os
 import environ
 
+env = environ.Env()
+environ.Env.read_env()  # Esto carga las variables de entorno desde el archivo .env
+
+
+
 # --- Base ---
 BASE_DIR = Path(__file__).resolve().parent.parent
 

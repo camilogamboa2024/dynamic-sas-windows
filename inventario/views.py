@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from .models import Producto, MovimientoStock
 from .forms import ProductoForm, MovimientoForm
 from .services import get_productos_bajo_stock
+from templates import *
 
 
 
@@ -25,7 +26,7 @@ class ProductoList(LoginRequiredMixin, ListView):
 class ProductoCreate(LoginRequiredMixin, CreateView):
     form_class = ProductoForm
     success_url = reverse_lazy("inventario:productos")
-
+    template_name = "inventario/producto_form.html"  
     def form_valid(self, form):
         """
         Guardamos el producto una única vez y redirigimos
